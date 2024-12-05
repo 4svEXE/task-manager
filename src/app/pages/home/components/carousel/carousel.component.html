@@ -1,0 +1,53 @@
+<!-- <owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide>Slide 1</ng-template>
+  <ng-template carouselSlide>Slide 2</ng-template>
+  <ng-template carouselSlide>Slide 3</ng-template>
+</owl-carousel-o> -->
+
+
+<owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide>
+    <div class="slide-content">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50" class="svg-icon">
+        <circle cx="50" cy="50" r="40" fill="url(#gradient1)" />
+        <defs>
+          <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="slide-text">Slide 1 - Gradient Circle</p>
+    </div>
+  </ng-template>
+
+  <ng-template carouselSlide>
+    <div class="slide-content">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50" class="svg-icon">
+        <rect width="80" height="80" x="10" y="10" rx="15" ry="15" fill="url(#gradient2)" />
+        <defs>
+          <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(0,255,0);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="slide-text">Slide 2 - Gradient Square</p>
+    </div>
+  </ng-template>
+
+  <ng-template carouselSlide>
+    <div class="slide-content">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="50" height="50" class="svg-icon">
+        <polygon points="50,15 90,85 10,85" fill="url(#gradient3)" />
+        <defs>
+          <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,165,0);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(255,69,0);stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+      <p class="slide-text">Slide 3 - Gradient Triangle</p>
+    </div>
+  </ng-template>
+</owl-carousel-o>

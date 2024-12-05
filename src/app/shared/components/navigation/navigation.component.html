@@ -1,0 +1,10 @@
+<nav [ngClass]="navMainClass + navClass">
+  <a
+    *ngFor="let route of routes"
+    [routerLink]="route.path"
+    routerLinkActive="text-yellow-400"
+    class="text-white block"
+  >
+    {{ route.label }}
+  </a>
+</nav>

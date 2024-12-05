@@ -1,0 +1,39 @@
+// styles.scss
+
+owl-carousel-o {
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  .svg-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+  }
+
+  .slide-text {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  // Дополнительные стили для слайдов при активном состоянии
+  ::ng-deep .owl-item.active .slide-content {
+    background-color: #ffe600;
+  }
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "id": 3,
+    "title": "Understanding Angular4444 17",
+    "author": "Ivan Bro",
+    "date": "2024-11-01",
+    "content": "Angular 17 brings new features and optimizations that make it a top choice for web developers. In this post, we explore the key updates and how to leverage them.",
+    "tags": [
+      "Angular",
+      "Web Development",
+      "Frontend"
+    ],
+    "image": "https://example.com/images/angular-17.jpg"
+  },
+  {
+    "id": 1733332035931,
+    "title": "Новий пост",
+    "author": "Ivan Bro",
+    "date": "2024-12-04T17:07:15.931Z",
+    "content": "Це новий пост.",
+    "tags": [
+      "Новий",
+      "Пост"
+    ],
+    "image": "https://example.com/new-post.jpg"
+  }
+]

@@ -1,0 +1,11 @@
+identifier: mc34r9k3q8a3kf83
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: task-manager
+homeFolder: C:\Users\4sv\Desktop\task-manager
+distFolder: ./dist/task-manager/browser
+outDir: C:\Users\4sv\Desktop\task-manager\dist\static
+handle404: ''
+allowErrorCollect: true

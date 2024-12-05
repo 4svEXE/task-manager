@@ -1,0 +1,36 @@
+@import "variables";
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.rotating {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+[id]::before {
+    content: '';
+    display: block;
+    height: 80px;
+    margin-top: -80px;
+    visibility: hidden;
+
+    @media (max-width: $media-tablet) {
+        height: 20px;
+        margin-top: -20px;
+    }
+}
+
+.swiper-horizontal {
+    padding: 0 45px;
+}

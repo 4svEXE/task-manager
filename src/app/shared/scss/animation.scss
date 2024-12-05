@@ -1,0 +1,28 @@
+@import "variables";
+
+.animated {
+    &.show {
+        transform: translateY(-100%);
+        opacity: 0;
+        animation: show 0.5s ease-out forwards;
+    }
+
+    @for $i from 1 through 6 {
+        &.delay-#{$i} {
+            animation-delay: $i * 0.5s;
+        }
+    }
+
+    @keyframes show {
+        from {
+            transform: translateY(-50%);
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0%);
+        }
+    }
+}
+

@@ -1,0 +1,29 @@
+<header class="bg-blue-600 p-4 relative">
+  <div class="container mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <div class="text-white text-xl font-semibold">
+      <a href="#">Logo</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="hidden md:flex space-x-6">
+      <app-navigation />
+    </nav>
+
+    <!-- Burger Icon for Mobile/Tablet -->
+    <div class="md:hidden" (click)="toggleMobileMenu()">
+      <button id="burger" class="text-white">
+        <div [innerHTML]="svg['mobile-menu']"></div>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation -->
+<div
+  class="mobile-menu-container md:hidden p-4"
+  [class.active]="isMobileMenuOpen"
+  (click)="toggleMobileMenu()"
+>
+  <app-navigation navClass="flex-col" />
+</div>

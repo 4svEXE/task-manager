@@ -15,9 +15,6 @@ export class NavigationComponent {
 
   routes = [
     { path: 'home', label: 'Home' },
-    { path: 'about', label: 'About' },
-    { path: 'faq', label: 'FAQ' },
-    { path: 'services', label: 'Services' },
-    { path: 'contacts', label: 'Contacts' },
+    { path: 'tasks', label: 'tasks' },
   ];
 }

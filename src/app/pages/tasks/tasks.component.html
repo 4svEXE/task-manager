@@ -1,0 +1,47 @@
+<div class="container">
+  <p>Tasks Works!</p>
+
+  <!-- Навігація між сторінками -->
+  <nav class="navigation">
+    <ul class="nav-list">
+      <li><a routerLink="day" routerLinkActive="active">Day View</a></li>
+      <li><a routerLink="week" routerLinkActive="active">Week View</a></li>
+      <li><a routerLink="month" routerLinkActive="active">Month View</a></li>
+    </ul>
+  </nav>
+
+  <div class="container m-auto">
+    <!-- Тут рендеряться дочірні компоненти -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+<div class="container">
+  <div>
+    <h2>Task Manager</h2>
+
+    <form (submit)="addTask()" class="flex flex-col gap-2">
+      <input [(ngModel)]="newTask.text" placeholder="Task Name" required />
+      <textarea [(ngModel)]="newTask.details" placeholder="Details"></textarea>
+      <input [(ngModel)]="newTask.categoryId" placeholder="Category ID" />
+      <input [(ngModel)]="newTask.projectId" placeholder="Project ID" />
+      <input [(ngModel)]="newTask.priority" type="number" placeholder="Priority" />
+      <input [(ngModel)]="newTask.complexity" type="number" placeholder="Complexity" />
+      <input [(ngModel)]="newTask.reward" placeholder="Reward" />
+      <button type="submit">Add Task</button>
+    </form>
+
+    <ul>
+      <li *ngFor="let task of tasks">
+        <h3>{{ task.text }}</h3>
+        <p>{{ task.details }}</p>
+        <button (click)="deleteTask(task.id ?? '')">Delete</button>
+        <button (click)="editTask(task)">Edit</button>
+      </li>
+    </ul>
+
+    <button (click)="saveTasks()" class="button ">Save Tasks</button>
+  </div>
+
+</div>

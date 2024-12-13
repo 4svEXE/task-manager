@@ -12,5 +12,33 @@
     "executionDates": [],
     "startHour": 0,
     "endHour": 0
+  },
+  {
+    "id": "task_cxsd6fzo7tc1734111468591",
+    "text": "Івана франка",
+    "details": "аіваіва",
+    "categoryId": "asdas",
+    "projectId": "",
+    "priority": 1,
+    "complexity": 1,
+    "reward": "нагорода",
+    "creationDate": "2024-12-13T17:37:16.196Z",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
+  },
+  {
+    "id": "task_vsnuj5cay61734111653782",
+    "text": "Чернівецька",
+    "details": "аіваі аі ва а іаві",
+    "categoryId": "1",
+    "projectId": "1",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "нагорода 123",
+    "creationDate": "2024-12-13T17:38:24.548Z",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
   }
 ]

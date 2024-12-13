@@ -12,5 +12,19 @@
     "executionDates": [],
     "startHour": 0,
     "endHour": 0
+  },
+  {
+    "id": "task_cxsd6fzo7tc1734111468591",
+    "text": "Івана франка",
+    "details": "аіваіва",
+    "categoryId": "asdas",
+    "projectId": "",
+    "priority": 1,
+    "complexity": 1,
+    "reward": "нагорода",
+    "creationDate": "2024-12-13T17:37:16.196Z",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
   }
 ]

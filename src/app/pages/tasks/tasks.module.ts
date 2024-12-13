@@ -8,7 +8,7 @@ import { MonthViewComponent } from './components/month-view/month-view.component
 import { TasksRoutingModule } from './tasks-routing.module';
 
 import { FormsModule } from '@angular/forms';
-import { TaskItemComponent } from '../../shared/components/task-item/task-item.component';
+import { TaskDisplayComponent } from '../../shared/components/task-display/task-display.component';
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { TaskItemComponent } from '../../shared/components/task-item/task-item.c
     RouterOutlet,
     TasksRoutingModule,
     FormsModule,
-    TaskItemComponent
+    TaskDisplayComponent
   ]
 })
 export class TasksModule { }

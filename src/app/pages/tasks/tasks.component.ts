@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TasksService } from '../../core/services/api/tasks.service';
 import { GitHubApiService } from '../../core/services/api/githubApi.service';
 import { Task } from '../../core/interfaces';
@@ -8,7 +8,7 @@ import { Task } from '../../core/interfaces';
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.scss']
 })
-export class TasksComponent implements OnInit {
+export class TasksComponent {
   tasks: Task[] = [];
   newTask: Task = {
     id: '',
@@ -27,15 +27,9 @@ export class TasksComponent implements OnInit {
 
   constructor(private tasksService: TasksService, private gitHubApiService: GitHubApiService) {}
 
-  ngOnInit(): void {
-    this.loadTasks();
-  }
 
-  loadTasks(): void {
-    this.tasksService.loadTasks().subscribe((tasks) => {
-      this.tasks = tasks;
-    });
-  }
+
+
 
   addTask(): void {
     this.newTask.id = this.gitHubApiService.generateId('task'); // Створення ID для нового таска
@@ -56,13 +50,7 @@ export class TasksComponent implements OnInit {
     };
   }
 
-  editTask(updatedTask: Task): void {
-    this.tasksService.editTask(updatedTask);
-  }
 
-  deleteTask(id: string): void {
-    this.tasksService.deleteTask(id);
-  }
 
   saveTasks(): void {
     this.tasksService.saveTasks().subscribe(() => {

@@ -58,17 +58,7 @@
       <button type="submit">Add Task</button>
     </form>
 
-    <ul>
-      <!-- ToDO дтримувати поточну дату з роуту /2024/12/24 - написати пайп для дати-->
-      <li *ngFor="let task of tasks">
-        <app-task-item
-          [task]="task"
-          [currentDate]="'0'"
-          (deleteTask)="deleteTask(task.id)"
-          (editTask)="editTask(task)"
-        ></app-task-item>
-      </li>
-    </ul>
+    <app-task-display />
 
     <button (click)="saveTasks()">Save Tasks</button>
   </div>

@@ -1,0 +1,15 @@
+<div class="task-item">
+  <input type="checkbox" name="isExecuted" id="isExecuted" [checked]="isExecuted" (change)="toggteIsExecuted()">
+
+  <div class="task-header">
+    <h3 class="task-title">{{ task.text }}</h3>
+    <span class="task-priority" [class.high-priority]="task.priority > 5">
+      Priority: {{ task.priority }}
+    </span>
+  </div>
+  <p class="task-details">{{ task.details }}</p>
+  <div class="task-meta">
+    <span class="task-date">Created: {{ task.creationDate | date }}</span>
+    <span class="task-reward">Reward: {{ task.reward }}</span>
+  </div>
+</div>

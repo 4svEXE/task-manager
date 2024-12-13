@@ -2,21 +2,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { GitHubApiService } from './githubApi.service';
+import { Task } from '../../interfaces';
 
-export interface Task {
-  id?: string;
-  text: string;
-  details?: string;
-  categoryId: string;
-  projectId: string;
-  priority: number;
-  complexity: number;
-  reward?: string;
-  creationDate: Date;
-  executionDates: Date[];
-  startHour?: number;
-  endHour?: number;
-}
 
 @Injectable({
   providedIn: 'root',

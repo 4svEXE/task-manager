@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Task, TasksService } from '../../core/services/tasks.service';
-import { GitHubApiService } from '../../core/services/githubApi.service';
+import { TasksService } from '../../core/services/api/tasks.service';
+import { GitHubApiService } from '../../core/services/api/githubApi.service';
+import { Task } from '../../core/interfaces';
 
 @Component({
   selector: 'app-tasks',
@@ -18,7 +19,7 @@ export class TasksComponent implements OnInit {
     priority: 0,
     complexity: 0,
     reward: '',
-    creationDate: new Date(),
+    creationDate: new Date().toLocaleDateString(),
     executionDates: [],
     startHour: 0,
     endHour: 0,
@@ -48,7 +49,7 @@ export class TasksComponent implements OnInit {
       priority: 0,
       complexity: 0,
       reward: '',
-      creationDate: new Date(),
+      creationDate: new Date().toLocaleDateString(),
       executionDates: [],
       startHour: 0,
       endHour: 0,

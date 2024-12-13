@@ -8,6 +8,7 @@ import { MonthViewComponent } from './components/month-view/month-view.component
 import { TasksRoutingModule } from './tasks-routing.module';
 
 import { FormsModule } from '@angular/forms';
+import { TaskItemComponent } from '../../shared/components/task-item/task-item.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     RouterOutlet,
     TasksRoutingModule,
-    FormsModule
+    FormsModule,
+    TaskItemComponent
   ]
 })
 export class TasksModule { }

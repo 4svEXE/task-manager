@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
-import { GitHubApiService } from './githubApi.service';
+import { GitHubApiService } from './api/githubApi.service';
 
 export interface Post {
   id?: string;

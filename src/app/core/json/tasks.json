@@ -55,5 +55,19 @@
     "executionDates": [],
     "startHour": 0,
     "endHour": 0
+  },
+  {
+    "id": "task_w712i43tk7c1734198826635",
+    "text": "test",
+    "details": "test",
+    "categoryId": "",
+    "projectId": "",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "no",
+    "creationDate": "14.12.2024",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
   }
 ]

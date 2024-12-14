@@ -69,5 +69,19 @@
     "executionDates": [],
     "startHour": 0,
     "endHour": 0
+  },
+  {
+    "id": "task_ql46c4nobue1734205117207",
+    "text": "Нога",
+    "details": "кота",
+    "categoryId": "",
+    "projectId": "",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "Пердьоха",
+    "creationDate": "14.12.2024",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
   }
 ]

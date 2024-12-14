@@ -83,5 +83,19 @@
     "executionDates": [],
     "startHour": 0,
     "endHour": 0
+  },
+  {
+    "id": "task_dxkbmht6a481734206768359",
+    "text": "конча",
+    "details": "собаки",
+    "categoryId": "",
+    "projectId": "",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "Пердьоха",
+    "creationDate": "14.12.2024",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
   }
 ]

@@ -1,0 +1,40 @@
+<div class="add-task-container">
+  <form (submit)="addTask()">
+    <input
+      [(ngModel)]="newTask.text"
+      name="text"
+      placeholder="Task Name"
+      required
+    />
+    <textarea
+      [(ngModel)]="newTask.details"
+      name="details"
+      placeholder="Details"
+    ></textarea>
+    <input
+      [(ngModel)]="newTask.categoryId"
+      name="categoryId"
+      placeholder="Category ID"
+    />
+    <input
+      [(ngModel)]="newTask.projectId"
+      name="projectId"
+      placeholder="Project ID"
+    />
+    <input
+      [(ngModel)]="newTask.priority"
+      name="priority"
+      type="number"
+      placeholder="Priority"
+    />
+    <input
+      [(ngModel)]="newTask.complexity"
+      name="complexity"
+      type="number"
+      placeholder="Complexity"
+    />
+    <input [(ngModel)]="newTask.reward" name="reward" placeholder="Reward" />
+    <button type="submit">Add Task</button>
+  </form>
+  <button (click)="saveTasks()">Save Tasks</button>
+</div>

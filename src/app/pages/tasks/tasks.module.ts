@@ -9,6 +9,7 @@ import { TasksRoutingModule } from './tasks-routing.module';
 
 import { FormsModule } from '@angular/forms';
 import { TaskDisplayComponent } from '../../shared/components/task-display/task-display.component';
+import { AddTaskComponent } from './components/add-task/add-task.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { TaskDisplayComponent } from '../../shared/components/task-display/task-
     DayViewComponent,
     WeekViewComponent,
     MonthViewComponent,
+    AddTaskComponent
   ],
   imports: [
     CommonModule,

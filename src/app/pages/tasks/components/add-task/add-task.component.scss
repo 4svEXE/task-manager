@@ -1,0 +1,80 @@
+/* Загальний стиль для форми */
+.add-task-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Заголовки та текст */
+.add-task-container h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #202124;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Інпут і текстове поле */
+.add-task-container input,
+.add-task-container textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.add-task-container input:focus,
+.add-task-container textarea:focus {
+  border-color: #1a73e8;
+  box-shadow: 0 1px 4px rgba(26, 115, 232, 0.2);
+}
+
+/* Текстове поле */
+.add-task-container textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* Кнопки */
+.add-task-container button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-task-container button:hover {
+  background-color: #1558b3;
+}
+
+.add-task-container button:active {
+  background-color: #003c8f;
+}
+
+/* Кнопка "Save Tasks" */
+.add-task-container button:nth-of-type(2) {
+  margin-top: 8px;
+  background-color: #34a853;
+}
+
+.add-task-container button:nth-of-type(2):hover {
+  background-color: #2b8c42;
+}
+
+.add-task-container button:nth-of-type(2):active {
+  background-color: #1e5d2d;
+}

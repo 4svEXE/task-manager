@@ -1,5 +1,4 @@
-import { ScheduledTasksService } from './../../../core/services/api/scheduled-tasks.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Task } from '../../../core/interfaces';
 
@@ -12,27 +11,10 @@ import { Task } from '../../../core/interfaces';
 })
 export class TaskItemComponent {
   @Input() task!: Task;
-  // передавати дату перегляду (яка сторінка)
-  @Input() currentDate!: string;
-  isExecuted: boolean = false;
-
-  constructor(private scheduledTasksService: ScheduledTasksService) {}
-
-  ngOnInit() {
-    this.updateIsExecuted();
-  }
-
-  // отримуєм стан чекбокса
-  updateIsExecuted() {
-    this.isExecuted = this.scheduledTasksService.getIsExecuted(
-      this.task.id,
-      this.currentDate
-    );
-  }
+  @Input() isExecuted: boolean = false;
+  @Output() toggteCheckbox = new EventEmitter<void>();
 
   toggteIsExecuted() {
-    // Знайти таск за айді і відмітити зробменим
-    this.scheduledTasksService.toggleIsExecuted(this.task.id, this.currentDate);
-    this.updateIsExecuted();
+    this.toggteCheckbox.emit();  // Викликаємо подію при зміні чекбоксу
   }
 }

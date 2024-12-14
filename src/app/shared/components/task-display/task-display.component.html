@@ -1,11 +1,11 @@
 <ul>
-  <!-- ToDO дтримувати поточну дату з роуту /2024/12/24 - написати пайп для дати-->
-  <li *ngFor="let task of tasks">
+  <li *ngFor="let task of tasksWithScheduled">
     <app-task-item
       [task]="task"
-      [currentDate]="'0'"
+      [isExecuted]="task.isExecuted || false"
+      (toggteCheckbox)="toggteIsExecuted(task.id)"
       (deleteTask)="deleteTask(task.id)"
       (editTask)="editTask(task)"
-    ></app-task-item>
+    />
   </li>
 </ul>

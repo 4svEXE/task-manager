@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, switchMap, tap } from 'rxjs';
-import { ScheduledTask } from '../../interfaces';
+import { BehaviorSubject, map, Observable, switchMap, tap } from 'rxjs';
+import { ScheduledTask, TaskWithScheduled } from '../../interfaces';
 import { GitHubApiService } from './githubApi.service';
 
 @Injectable({
@@ -15,95 +15,107 @@ export class ScheduledTasksService {
 
   constructor(private gitHubApiService: GitHubApiService) {}
 
-  // todo переробити в реюзабельні дженерики в гітзаб сервісі
+  // Завантаження даних із зовнішнього джерела
   loadData(): Observable<ScheduledTask[]> {
-    console.log('ScheduledTasksService :>> load data' );
-    return this.gitHubApiService
-      .loadFile(this.filePath)
-      .pipe(
-        tap((data: ScheduledTask[]) => this.scheduledTasksSubject.next(data))
-      );
+    console.log('ScheduledTasksService :>> load data initiated');
+
+    return this.gitHubApiService.loadFile(this.filePath).pipe(
+      tap((data: ScheduledTask[]) => {
+        // Оновлення BehaviorSubject отриманими даними
+        this.scheduledTasksSubject.next(data);
+      })
+    );
   }
 
+  getItemsByDate(date: string): Observable<ScheduledTask[]> {
+    return this.gitHubApiService.loadFile(this.filePath).pipe(
+      map((scheduled: ScheduledTask[]) =>
+        scheduled.filter((item) => item.dateOfExecution === date)
+      ),
+      tap((filteredScheduled) => {
+        console.log('Filtered Scheduled Tasks:', filteredScheduled);
+        this.scheduledTasksSubject.next(filteredScheduled);
+      })
+    );
+  }
+
+  // Збереження даних у файл
   saveData(): Observable<any> {
     const data = this.scheduledTasksSubject.getValue();
 
-    console.log('ScheduledTasksService :>> save data', data );
-    return this.gitHubApiService
-      .getFileSha(this.filePath)
-      .pipe(
-        switchMap((sha) =>
-          this.gitHubApiService.saveFile(
-            this.filePath,
-            data,
-            this.commitMessage,
-            sha
-          )
+    console.log('ScheduledTasksService :>> saving data', data);
+    return this.gitHubApiService.getFileSha(this.filePath).pipe(
+      // Використання SHA файлу для збереження змін
+      switchMap((sha) =>
+        this.gitHubApiService.saveFile(
+          this.filePath,
+          data,
+          this.commitMessage,
+          sha
         )
-      );
+      )
+    );
   }
-  // todo переробити в реюзабельні дженерики в гітзаб сервісі
 
-  // генеруєм запланований таск за його айді
+  // Генерація нового запланованого завдання
   generateIsExecuted(taskId: string): ScheduledTask {
     const scheduledTaskItem = {
       taskId,
-      dateOfExecution: new Date().toLocaleDateString(),
+      // Дата у форматі "YYYY-MM-DD"
+      dateOfExecution: new Date().toISOString().slice(0, 10),
       isExecuted: false,
     };
 
     return scheduledTaskItem;
   }
 
-  addScheduledTask(newScheduledTask: ScheduledTask): void {
+  // Додавання нового запланованого завдання
+  addScheduledTask(taskId: string): void {
+    const scheduled: ScheduledTask = this.generateIsExecuted(taskId);
+
     const tasks = this.scheduledTasksSubject.getValue();
-    this.scheduledTasksSubject.next([...tasks, newScheduledTask]);
-    this.saveData()
-  }
 
-  deleteScheduledTask(taskId: string, dateOfExecution: string): void {
-    const tasks = this.scheduledTasksSubject
-      .getValue()
-      .filter(
-        (task) =>
-          task.taskId !== taskId || task.dateOfExecution !== dateOfExecution
-      );
-    this.scheduledTasksSubject.next(tasks);
-    this.saveData()
-  }
-
-  getIsExecuted(taskId: string, dateOfExecution: string): boolean {
-    // знаходимо відповідний таск
-    const scheduledTask: ScheduledTask | undefined = this.scheduledTasksSubject
-      .getValue()
-      .filter((task) => {
-        if (
-          task.taskId === taskId &&
-          task.dateOfExecution === dateOfExecution
-        ) {
-          return true;
-        }
-        return false;
-      })[0];
-
-    //  генеруємо новий запис в таблиці якщо його чомусь нема
-    if (!scheduledTask) {
-      this.generateIsExecuted(taskId);
-      return false;
-    }
-
-    return scheduledTask.isExecuted;
-  }
-
-  // змінити стан чи виконано таск
-  toggleIsExecuted(taskId: string, dateOfExecution: string): void {
-    const tasks = this.scheduledTasksSubject.getValue().map((task) => {
-      if (task.taskId === taskId && task.dateOfExecution === dateOfExecution) {
-        return { ...task, isExecuted: true };
-      }
-      return task;
+    // Додавання нової задачі до списку
+    this.scheduledTasksSubject.next([...tasks, scheduled]);
+    this.saveData().subscribe(() => {
+      console.log('saved - ScheduledTasksService :>> task added');
     });
-    this.scheduledTasksSubject.next(tasks);
-    this.saveData()
+  }
+
+  //   // Видалення запланованої задачі
+  //   deleteScheduledTask(taskId: string, dateOfExecution: string): void {
+  //     const tasks = this.scheduledTasksSubject
+  //       .getValue()
+  //       .filter(
+  //         (task) =>
+  //           task.taskId !== taskId || task.dateOfExecution !== dateOfExecution
+  //       );
+  //     this.scheduledTasksSubject.next(tasks);
+  //     this.saveData().subscribe(() =>
+  //       console.log('ScheduledTasksService :>> task deleted')
+  //     );
+  //   }
+
+
+  updateScheduledTask(scheduledTask: TaskWithScheduled): void {
+    const tasks = this.scheduledTasksSubject.getValue();
+
+    console.log('tasks :>> ', tasks);
+
+    const index = tasks.findIndex((task) => {
+      return (
+        task.taskId === scheduledTask.taskId &&
+        task.dateOfExecution === scheduledTask.dateOfExecution
+      );
+    });
+    console.log('index :>> ', index);
+
+    if (index !== -1) {
+      tasks[index] = scheduledTask;
+      this.scheduledTasksSubject.next(tasks);
+      this.saveData().subscribe(() =>
+        console.log('ScheduledTasksService :>> task updated')
+      );
+    }
   }
 }

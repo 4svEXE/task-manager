@@ -25,3 +25,5 @@ export interface ScheduledTask {
   taskId: string;
   isExecuted: boolean;
 }
+
+export interface TaskWithScheduled extends Task, ScheduledTask {}

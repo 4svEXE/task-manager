@@ -20,46 +20,10 @@
   <div>
     <h2>Task Manager</h2>
 
-    <form (submit)="addTask()">
-      <input
-        [(ngModel)]="newTask.text"
-        name="text"
-        placeholder="Task Name"
-        required
-      />
-      <textarea
-        [(ngModel)]="newTask.details"
-        name="details"
-        placeholder="Details"
-      ></textarea>
-      <input
-        [(ngModel)]="newTask.categoryId"
-        name="categoryId"
-        placeholder="Category ID"
-      />
-      <input
-        [(ngModel)]="newTask.projectId"
-        name="projectId"
-        placeholder="Project ID"
-      />
-      <input
-        [(ngModel)]="newTask.priority"
-        name="priority"
-        type="number"
-        placeholder="Priority"
-      />
-      <input
-        [(ngModel)]="newTask.complexity"
-        name="complexity"
-        type="number"
-        placeholder="Complexity"
-      />
-      <input [(ngModel)]="newTask.reward" name="reward" placeholder="Reward" />
-      <button type="submit">Add Task</button>
-    </form>
+    <app-add-task/>
 
+    <!-- todo inject curr date -->
     <app-task-display />
 
-    <button (click)="saveTasks()">Save Tasks</button>
   </div>
 </div>

@@ -1,1 +1,21 @@
-<p>day-view works!</p>
+<div class="container">
+  <div>
+    <h2>Task Manager</h2>
+
+    <nav class="navigation">
+      <ul class="nav-list">
+        <li>
+          <a (click)="updateToPreviousDay()" [routerLink]="getPreviousDay()">prev</a>
+        </li>
+        <li>
+          <a (click)="updateDateToNow()" [routerLink]="getCurrentDay()">current</a>
+        </li>
+        <li>
+          <a (click)="updateToNextDay()" [routerLink]="getNextDay()">next</a>
+        </li>
+      </ul>
+    </nav>
+
+    <app-task-display [currentDate]="currentDate"></app-task-display>
+  </div>
+</div>

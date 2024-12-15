@@ -1,36 +1,89 @@
 @import "variables";
 
 .no-scroll {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .rotating {
-    animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
 }
 
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(360deg);
-    }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 [id]::before {
-    content: '';
-    display: block;
-    height: 80px;
-    margin-top: -80px;
-    visibility: hidden;
+  content: '';
+  display: block;
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
 
-    @media (max-width: $media-tablet) {
-        height: 20px;
-        margin-top: -20px;
-    }
+  @media (max-width: $media-tablet) {
+    height: 20px;
+    margin-top: -20px;
+  }
 }
 
 .swiper-horizontal {
-    padding: 0 45px;
+  padding: 0 45px;
+}
+
+
+
+// todo add to shared.scss
+.navigation {
+  background-color: #ffffff;
+  /* Білий фон */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Легка тінь */
+  padding: 0.5rem 1rem;
+
+  .nav-list {
+    display: flex;
+    /* Горизонтальне розташування */
+    justify-content: space-around;
+    /* Рівномірний простір між елементами */
+    list-style: none;
+    /* Забираємо стандартні стилі списку */
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+
+      a {
+        text-decoration: none;
+        /* Без підкреслення */
+        font-size: 1rem;
+        font-weight: 500;
+        color: #757575;
+        /* Сірий текст */
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        /* Круглі краї для ефекту кнопок */
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: #f5f5f5;
+          /* Легке підсвічування при наведенні */
+          color: #333;
+          /* Темніший текст */
+        }
+
+        &.active {
+          background-color: #6200ea;
+          /* Основний колір Material Design */
+          color: #ffffff;
+          /* Білий текст */
+        }
+      }
+    }
+  }
 }

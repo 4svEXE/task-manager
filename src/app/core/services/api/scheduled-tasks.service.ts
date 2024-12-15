@@ -17,7 +17,7 @@ export class ScheduledTasksService {
 
   // Завантаження даних із зовнішнього джерела
   loadData(): Observable<ScheduledTask[]> {
-    console.log('ScheduledTasksService :>> load data initiated');
+    // console.log('ScheduledTasksService :>> load data initiated');
 
     return this.gitHubApiService.loadFile(this.filePath).pipe(
       tap((data: ScheduledTask[]) => {
@@ -33,7 +33,7 @@ export class ScheduledTasksService {
         scheduled.filter((item) => item.dateOfExecution === date)
       ),
       tap((filteredScheduled) => {
-        console.log('Filtered Scheduled Tasks:', filteredScheduled);
+        // console.log('Filtered Scheduled Tasks:', filteredScheduled);
         this.scheduledTasksSubject.next(filteredScheduled);
       })
     );
@@ -43,7 +43,7 @@ export class ScheduledTasksService {
   saveData(): Observable<any> {
     const data = this.scheduledTasksSubject.getValue();
 
-    console.log('ScheduledTasksService :>> saving data', data);
+    // console.log('ScheduledTasksService :>> saving data', data);
     return this.gitHubApiService.getFileSha(this.filePath).pipe(
       // Використання SHA файлу для збереження змін
       switchMap((sha) =>
@@ -78,7 +78,7 @@ export class ScheduledTasksService {
     // Додавання нової задачі до списку
     this.scheduledTasksSubject.next([...tasks, scheduled]);
     this.saveData().subscribe(() => {
-      console.log('saved - ScheduledTasksService :>> task added');
+      // console.log('saved - ScheduledTasksService :>> task added');
     });
   }
 
@@ -100,7 +100,7 @@ export class ScheduledTasksService {
   updateScheduledTask(scheduledTask: TaskWithScheduled): void {
     const tasks = this.scheduledTasksSubject.getValue();
 
-    console.log('tasks :>> ', tasks);
+    // console.log('tasks :>> ', tasks);
 
     const index = tasks.findIndex((task) => {
       return (
@@ -108,13 +108,13 @@ export class ScheduledTasksService {
         task.dateOfExecution === scheduledTask.dateOfExecution
       );
     });
-    console.log('index :>> ', index);
+    // console.log('index :>> ', index);
 
     if (index !== -1) {
       tasks[index] = scheduledTask;
       this.scheduledTasksSubject.next(tasks);
       this.saveData().subscribe(() =>
-        console.log('ScheduledTasksService :>> task updated')
+        0 // console.log('ScheduledTasksService :>> task updated')
       );
     }
   }

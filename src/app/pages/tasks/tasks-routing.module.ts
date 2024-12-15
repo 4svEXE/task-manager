@@ -4,6 +4,7 @@ import { DayViewComponent } from './components/day-view/day-view.component';
 import { WeekViewComponent } from './components/week-view/week-view.component';
 import { MonthViewComponent } from './components/month-view/month-view.component';
 import { TasksComponent } from './tasks.component';
+import { DayRedirectGuard } from '../../core/guards/day-redirect.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,8 @@ const routes: Routes = [
     component: TasksComponent,
     children: [
       { path: '', redirectTo: 'day', pathMatch: 'full' }, // Редірект з /tasks на /tasks/day
-      { path: 'day', component: DayViewComponent },
+      { path: 'day', canActivate: [DayRedirectGuard], component: DayViewComponent },
+      { path: 'day/:year/:month/:day', component: DayViewComponent },
       { path: 'week', component: WeekViewComponent },
       { path: 'month', component: MonthViewComponent },
     ],

@@ -1,6 +1,4 @@
 <div class="container">
-  <p>Tasks Works!</p>
-
   <!-- Навігація між сторінками -->
   <nav class="navigation">
     <ul class="nav-list">
@@ -11,19 +9,8 @@
   </nav>
 
   <div class="container m-auto">
-    <!-- Тут рендеряться дочірні компоненти -->
     <router-outlet></router-outlet>
   </div>
 </div>
 
-<div class="container">
-  <div>
-    <h2>Task Manager</h2>
-
-    <app-add-task/>
-
-    <!-- todo inject curr date -->
-    <app-task-display />
-
-  </div>
-</div>
+<app-add-task/>

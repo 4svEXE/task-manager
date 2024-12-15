@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id": "task_nnzxv3hrcbj1734286961382",
+    "text": "конча",
+    "details": "собаки",
+    "categoryId": "",
+    "projectId": "",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "Пердьоха",
+    "creationDate": "15.12.2024",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
+  }
+]

@@ -12,6 +12,7 @@ export class AddTaskComponent {
   tasks: Task[] = [];
   // newTask: Task = deepClone(mockTask);
   newTask: Task = JSON.parse(JSON.stringify(mockTask));
+  isShowForm: boolean = false;
 
   constructor(
     private tasksService: TasksService,
@@ -28,6 +29,10 @@ export class AddTaskComponent {
     this.tasksService.saveTasks().subscribe(() => {
       console.log('Tasks saved successfully');
     });
+  }
+
+  showAddTaskForm(): void {
+    this.isShowForm = !this.isShowForm;
   }
 }
 

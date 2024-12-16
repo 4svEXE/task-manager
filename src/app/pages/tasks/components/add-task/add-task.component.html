@@ -1,4 +1,5 @@
-<div class="add-task-container">
+{{ isShowForm }}
+<div *ngIf="isShowForm" class="add-task-container">
   <form (submit)="addTask()">
     <input
       [(ngModel)]="newTask.text"
@@ -38,3 +39,7 @@
   </form>
   <button (click)="saveTasks()">Save Tasks</button>
 </div>
+
+<button (click)="showAddTaskForm()" class="add-task-button">
+  {{isShowForm? "-": "+"}}
+</button>

@@ -7,6 +7,12 @@
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   font-family: 'Roboto', sans-serif;
+
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
 }
 
 /* Заголовки та текст */
@@ -77,4 +83,24 @@
 
 .add-task-container button:nth-of-type(2):active {
   background-color: #1e5d2d;
+}
+
+
+.add-task-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #34a853;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
 }

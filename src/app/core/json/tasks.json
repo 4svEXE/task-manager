@@ -12,5 +12,47 @@
     "executionDates": [],
     "startHour": 0,
     "endHour": 0
+  },
+  {
+    "id": "task_rb8ecjoen41734367464307",
+    "text": "Зробити богром на ангулярі як блог",
+    "details": "Прикол що можна додавати пости і білдити їх зі скаллі і буде шось типу вордпреса",
+    "categoryId": "",
+    "projectId": "",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "",
+    "creationDate": "16.12.2024",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
+  },
+  {
+    "id": "task_25rxqh536mq1734367540872",
+    "text": "Відправити речі поштою",
+    "details": "Треба їхати в ліберець і відправити на НП",
+    "categoryId": "",
+    "projectId": "",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "",
+    "creationDate": "16.12.2024",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
+  },
+  {
+    "id": "task_t504kfkfbi1734367585272",
+    "text": "Заборонити автопідставку значень в інпут",
+    "details": "в новому таску бісячі пілказки",
+    "categoryId": "",
+    "projectId": "",
+    "priority": 0,
+    "complexity": 0,
+    "reward": "",
+    "creationDate": "16.12.2024",
+    "executionDates": [],
+    "startHour": 0,
+    "endHour": 0
   }
 ]
